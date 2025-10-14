@@ -94,7 +94,7 @@ def imputate_na(
     if num_cols:
         # imputate numeric features
         for col in num_cols:
-            df[col] = df[col].fillna(df[col].median())
+            df[col] = df[col].fillna(round(df[col].median()))
     if cat_cols is None:
         cat_cols = []
     if bool_cols is None:

@@ -3,7 +3,7 @@ name = "clustering"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Jaanis Fehling",email = ""}
+    {name = "Jaanis Fehling",email = "jaanisfehling@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.13, <3.14"
