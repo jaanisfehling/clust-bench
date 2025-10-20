@@ -139,7 +139,7 @@ parser.add_argument("category")
 parser.add_argument(
     "-m",
     "--metrics",
-    default=["nmi", "sse"],
+    default=["nmi"],
     choices=["nmi", "accuracy", "bic", "silhouette", "sse"],
     nargs="*",
 )

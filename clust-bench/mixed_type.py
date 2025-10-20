@@ -28,7 +28,7 @@ def random(df, k, num_cols, cat_cols):
 def kmeans_onehot_cat(df, k, num_cols, cat_cols):
     for col in cat_cols:
         df = one_hot_encode_feature(df, col)
-    return KMeans(n_clusters=k, init="random").fit(df.values).labels_
+    return KMeans(n_clusters=k, init="random", n_init=1).fit(df.values).labels_
 
 
 def kmeans_no_cat(df, k, num_cols, cat_cols):
@@ -36,13 +36,13 @@ def kmeans_no_cat(df, k, num_cols, cat_cols):
     df = df.drop(columns=cat_cols)
     if df.empty:
         return np.zeros(n)
-    return KMeans(n_clusters=k, init="random").fit(df.values).labels_
+    return KMeans(n_clusters=k, init="random", n_init=1).fit(df.values).labels_
 
 
 def kmeans_pp_onehot_cat(df, k, num_cols, cat_cols):
     for col in cat_cols:
         df = one_hot_encode_feature(df, col)
-    return KMeans(n_clusters=k, init="k-means++").fit(df.values).labels_
+    return KMeans(n_clusters=k, init="k-means++", n_init=1).fit(df.values).labels_
 
 
 def kmeans_pp_no_cat(df, k, num_cols, cat_cols):
@@ -50,7 +50,7 @@ def kmeans_pp_no_cat(df, k, num_cols, cat_cols):
     df = df.drop(columns=cat_cols)
     if df.empty:
         return np.zeros(n)
-    return KMeans(n_clusters=k, init="k-means++").fit(df.values).labels_
+    return KMeans(n_clusters=k, init="k-means++", n_init=1).fit(df.values).labels_
 
 
 def kmedoids_build_alternate_gower(df, k, num_cols, cat_cols):
@@ -298,7 +298,7 @@ def kamila_one_hot(df, k, num_cols, cat_cols):
 
 methods: List[Callable[[pd.DataFrame, int, List[str], List[str]], np.ndarray]] = [
     # random,
-    # kmeans_onehot_cat,
+    kmeans_onehot_cat,
     # kmeans_no_cat,
     kmeans_pp_onehot_cat,
     # kmeans_pp_no_cat,
