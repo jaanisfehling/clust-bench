@@ -7,10 +7,10 @@ import numpy as np
 import pandas as pd
 from sklearn.calibration import LabelEncoder
 
-from clustering.benchmark_utils import print_best
-from clustering.evaluations import MetricEvaluator
-from clustering.mixed_type import methods as mixed_type_methods
-from clustering.preprocess import *
+from clust_bench.benchmark_utils import print_best
+from clust_bench.evaluations import MetricEvaluator
+from clust_bench.mixed_type import methods as mixed_type_methods
+from clust_bench.preprocess import *
 
 
 def run(methods: List[Callable], metrics: List[str], iterations: int):
